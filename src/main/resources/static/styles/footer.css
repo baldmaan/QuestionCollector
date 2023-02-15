@@ -1,0 +1,97 @@
+.footer--div {
+	font-size: 1.8rem;
+	padding: 4.8rem 6.4rem;
+	grid-template-columns: auto auto;
+	align-items: center;
+
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
+	max-height: 10rem;
+
+}
+
+.footer--links {
+	display: flex;
+	/* justify-content: space-around; */
+	gap: 2rem;
+	align-items: center;
+	justify-self: start;
+
+}
+
+.footer--desc {
+	color: #777;
+}
+
+.footer__link:link,
+.footer__link:visited {
+	width: 3.2rem;
+	height: 3.2rem;
+}
+
+.footer__icon {
+	color: #999;
+	font-size: 3.2rem;
+	transition: color 0.3s ease-out;
+}
+
+/* colors handling for social media icons */
+
+.footer__icon[name=logo-facebook]:hover{
+    color: #3b5998;
+}
+
+.footer__icon[name=logo-github]:hover{
+    color: #0D1117;
+}
+
+.footer__icon[name=logo-linkedin]:hover{
+    color: #2877B5;
+}
+
+.footer--copy {
+	color: #aaa;
+	justify-self: end;
+}
+
+@media (max-width: 75em) {
+	.footer--div {
+		padding: 4.8rem 3.2rem;
+	}
+}
+
+@media (max-width: 68.75em) {
+	.grid {
+		column-gap: 3.2rem;
+	}
+}
+
+@media (max-width: 57.5em) {
+	.grid {
+		  gap: 1.2rem;
+	  }
+}
+
+@media (max-width: 50em) {
+	.grid--3-cols {
+        grid-template-columns: 1fr;
+    }
+	.footer__icon[name=logo-facebook]:hover,
+	.footer__icon[name=logo-github]:hover,
+	.footer__icon[name=logo-linkedin]:hover{
+		color: #999;
+	}
+
+}
+
+@media(max-width: 34em) {
+	.footer--div {
+		grid-template-columns: 1fr;
+		padding: 0.8rem 0;
+		gap:2rem;
+
+	}
+
+	.footer--links, .footer--copy {
+	    justify-self: center;
+	}
+}

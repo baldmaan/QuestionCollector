@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="description"
+			content="Question collector - online tool to help you learn using flashcards.
+			 You can also submit new questions to the database and increase the variety of cross-examination"
+		/>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="apple-touch-icon" sizes="180x180" th:href="@{/images/favicons/apple-touch-icon.png}" />
+		<link rel="icon" type="image/png" sizes="32x32" th:href="@{/images/favicons/favicon-32x32.png}" />
+		<link rel="icon" type="image/png" sizes="16x16" th:href="@{/images/favicons/favicon-16x16.png}" />
+		<link rel="manifest" th:href="@{/images/favicons/site.webmanifest}" />
+
+		<title>
+			Question collector &mdash; best tool to practice webdev knowledge
+		</title>
+
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+				href="https://fonts.googleapis.com/css2?family=Montserrat%3Awght%40400%3B500%3B600%3B700"
+			rel="stylesheet"
+		/>
+
+		<link rel="stylesheet" th:href="@{/styles/general.css}" />
+		<link rel="stylesheet" th:href="@{/styles/nav-styles.css}" />
+
+		<link rel="stylesheet" th:href="@{/styles/home.css}" />
+		<link rel="stylesheet" th:href="@{/styles/responsive-home.css}" />
+
+		<link rel="stylesheet" th:href="@{/styles/footer.css}" />
+
+
+		<script
+				type="module"
+				src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+				defer
+		></script>
+		<script
+				nomodule
+				src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+				defer
+		></script>
+		<script
+				th:src="@{/scripts/main.js}"
+				defer
+		></script>
+	</head>
+	<body>
+		<header>
+			<nav>
+				<div class="logo">
+					<a href="/" class="logo__a">
+						<span>vilcode</span> learn
+					</a>
+				</div>
+				<div class="openMenu">
+					<ion-icon class="icon-mobile" name="menu-outline"></ion-icon>
+				</div>
+				<ul class="mainMenu">
+					<li><a href="/" class="main-nav__link">home</a></li>
+					<li><a href="/submit" class="main-nav__link">create</a></li>
+					<li><a href="/questions" class="link-questions">learn</a></li>
+					<div class="closeMenu">
+						<ion-icon class="icon-mobile" name="close-outline"></ion-icon>
+					</div>
+				</ul>
+			</nav>
+		</header>
+
+		<main>
+			<section class="section-hero">
+			<div class="hero">
+				<div class="hero__text"><p>easy and efficient learning </p>
+				<p>anywhere, on any device</p>
+				<p>this is <span>vilcode</span> learn</p></div>
+				<div class="hero__img">
+					<img src="../images/undraw_road_to_knowledge_m8s0.svg">
+				</div>
+			</div>
+			</section>
+
+
+
+
+
+			<section class="section-description">
+				<div class="container">
+					<div class="description__header">
+						<h2 class="heading-secondary">How the collector works</h2>
+					</div>
+
+					<p class="description__text"></p>
+					<ul class="description-list list grid grid--3-cols">
+						<li class="description-list__item list--item">
+							<ion-icon
+								class="description__icon"
+								name="share-outline"
+							></ion-icon
+							><span
+								>Send questions that you deem tricky or interesting for
+								verification</span
+							>
+						</li>
+						<li class="description-list__item list--item">
+							<ion-icon class="description__icon" name="book-outline"></ion-icon
+							><span
+								>Learn from existing questions utilizing a flashcard-like
+								approach</span
+							>
+						</li>
+						<li class="description-list__item list--item">
+							<ion-icon class="description__icon" name="bulb-outline"></ion-icon
+							><span>Get examined using questions from the database</span>
+						</li>
+					</ul>
+				</div>
+			</section>
+		</main>
+
+		<footer>
+			<div class="container">
+				<div class="footer--div grid in--home">
+					<div class="footer--links">
+						<p class="footer--desc">Check us out on:</p>
+						<a
+							class="footer__link"
+							href="https://www.facebook.com/vilcode-108311144997852/"
+							><ion-icon class="footer__icon" name="logo-facebook"></ion-icon
+						></a>
+						<a class="footer__link" href="https://github.com/restmate-pl"
+							><ion-icon class="footer__icon" name="logo-github"></ion-icon
+						></a>
+						<a class="footer__link" href="#"
+							><ion-icon class="footer__icon" name="logo-linkedin"></ion-icon
+						></a>
+					</div>
+					<div class="footer--copy">
+						<p>Copyright &copy; vilcode <span class="year"></span></p>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</body>
+</html>

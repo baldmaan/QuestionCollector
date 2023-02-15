@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="description"
+			content="Question collector - online tool to help you learn using flashcards.
+			 You can also submit new questions to the database and increase the variety of cross-examination"
+		/>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="apple-touch-icon" sizes="180x180" th:href="@{/images/favicons/apple-touch-icon.png}" />
+		<link rel="icon" type="image/png" sizes="32x32" th:href="@{/images/favicons/favicon-32x32.png}" />
+		<link rel="icon" type="image/png" sizes="16x16" th:href="@{/images/favicons/favicon-16x16.png}" />
+		<link rel="manifest" th:href="@{/images/favicons/site.webmanifest}" />
+
+		<title>
+			Question collector &mdash; best tool to practice webdev knowledge
+		</title>
+
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Montserrat%3Awght%40400%3B500%3B600%3B700"
+			rel="stylesheet"
+		/>
+
+		<link rel="stylesheet" th:href="@{/styles/general.css}" />
+		<link rel="stylesheet" th:href="@{/styles/responsive-home.css}" />
+		<link rel="stylesheet" th:href="@{/styles/nav-styles.css}" />
+		
+		<link rel="stylesheet" th:href="@{/styles/questions.css}" />
+		
+		<link rel="stylesheet" th:href="@{/styles/footer.css}" />
+
+		<link rel="stylesheet" th:href="@{/styles/loading.css}" />
+		<script
+				type="module"
+				src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+				defer
+		></script>
+		<script
+				nomodule
+				src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+				defer
+		></script>
+		<script
+				th:src="@{/scripts/main.js}"
+				defer
+		></script>
+		<script
+				th:src="@{/scripts/questions.js}"
+				defer
+		></script>
+	</head>
+
+	<body class="loading">
+
+<!--	add to body class loading!!-->
+
+	<div class="loader-container">
+		<div class="loader">
+			<div>
+				<ul>
+					<li>
+						<svg viewBox="0 0 90 120" fill="currentColor">
+							<path
+									d="M90,0 L90,120 L11,120 C4.92486775,120 0,115.075132 0,109 L0,11 C0,4.92486775 4.92486775,0 11,0 L90,0 Z M71.5,81 L18.5,81 C17.1192881,81 16,82.1192881 16,83.5 C16,84.8254834 17.0315359,85.9100387 18.3356243,85.9946823 L18.5,86 L71.5,86 C72.8807119,86 74,84.8807119 74,83.5 C74,82.1745166 72.9684641,81.0899613 71.6643757,81.0053177 L71.5,81 Z M71.5,57 L18.5,57 C17.1192881,57 16,58.1192881 16,59.5 C16,60.8254834 17.0315359,61.9100387 18.3356243,61.9946823 L18.5,62 L71.5,62 C72.8807119,62 74,60.8807119 74,59.5 C74,58.1192881 72.8807119,57 71.5,57 Z M71.5,33 L18.5,33 C17.1192881,33 16,34.1192881 16,35.5 C16,36.8254834 17.0315359,37.9100387 18.3356243,37.9946823 L18.5,38 L71.5,38 C72.8807119,38 74,36.8807119 74,35.5 C74,34.1192881 72.8807119,33 71.5,33 Z"
+							></path>
+						</svg>
+					</li>
+					<li>
+						<svg viewBox="0 0 90 120" fill="currentColor">
+							<path
+									d="M90,0 L90,120 L11,120 C4.92486775,120 0,115.075132 0,109 L0,11 C0,4.92486775 4.92486775,0 11,0 L90,0 Z M71.5,81 L18.5,81 C17.1192881,81 16,82.1192881 16,83.5 C16,84.8254834 17.0315359,85.9100387 18.3356243,85.9946823 L18.5,86 L71.5,86 C72.8807119,86 74,84.8807119 74,83.5 C74,82.1745166 72.9684641,81.0899613 71.6643757,81.0053177 L71.5,81 Z M71.5,57 L18.5,57 C17.1192881,57 16,58.1192881 16,59.5 C16,60.8254834 17.0315359,61.9100387 18.3356243,61.9946823 L18.5,62 L71.5,62 C72.8807119,62 74,60.8807119 74,59.5 C74,58.1192881 72.8807119,57 71.5,57 Z M71.5,33 L18.5,33 C17.1192881,33 16,34.1192881 16,35.5 C16,36.8254834 17.0315359,37.9100387 18.3356243,37.9946823 L18.5,38 L71.5,38 C72.8807119,38 74,36.8807119 74,35.5 C74,34.1192881 72.8807119,33 71.5,33 Z"
+							></path>
+						</svg>
+					</li>
+					<li>
+						<svg viewBox="0 0 90 120" fill="currentColor">
+							<path
+									d="M90,0 L90,120 L11,120 C4.92486775,120 0,115.075132 0,109 L0,11 C0,4.92486775 4.92486775,0 11,0 L90,0 Z M71.5,81 L18.5,81 C17.1192881,81 16,82.1192881 16,83.5 C16,84.8254834 17.0315359,85.9100387 18.3356243,85.9946823 L18.5,86 L71.5,86 C72.8807119,86 74,84.8807119 74,83.5 C74,82.1745166 72.9684641,81.0899613 71.6643757,81.0053177 L71.5,81 Z M71.5,57 L18.5,57 C17.1192881,57 16,58.1192881 16,59.5 C16,60.8254834 17.0315359,61.9100387 18.3356243,61.9946823 L18.5,62 L71.5,62 C72.8807119,62 74,60.8807119 74,59.5 C74,58.1192881 72.8807119,57 71.5,57 Z M71.5,33 L18.5,33 C17.1192881,33 16,34.1192881 16,35.5 C16,36.8254834 17.0315359,37.9100387 18.3356243,37.9946823 L18.5,38 L71.5,38 C72.8807119,38 74,36.8807119 74,35.5 C74,34.1192881 72.8807119,33 71.5,33 Z"
+							></path>
+						</svg>
+					</li>
+					<li>
+						<svg viewBox="0 0 90 120" fill="currentColor">
+							<path
+									d="M90,0 L90,120 L11,120 C4.92486775,120 0,115.075132 0,109 L0,11 C0,4.92486775 4.92486775,0 11,0 L90,0 Z M71.5,81 L18.5,81 C17.1192881,81 16,82.1192881 16,83.5 C16,84.8254834 17.0315359,85.9100387 18.3356243,85.9946823 L18.5,86 L71.5,86 C72.8807119,86 74,84.8807119 74,83.5 C74,82.1745166 72.9684641,81.0899613 71.6643757,81.0053177 L71.5,81 Z M71.5,57 L18.5,57 C17.1192881,57 16,58.1192881 16,59.5 C16,60.8254834 17.0315359,61.9100387 18.3356243,61.9946823 L18.5,62 L71.5,62 C72.8807119,62 74,60.8807119 74,59.5 C74,58.1192881 72.8807119,57 71.5,57 Z M71.5,33 L18.5,33 C17.1192881,33 16,34.1192881 16,35.5 C16,36.8254834 17.0315359,37.9100387 18.3356243,37.9946823 L18.5,38 L71.5,38 C72.8807119,38 74,36.8807119 74,35.5 C74,34.1192881 72.8807119,33 71.5,33 Z"
+							></path>
+						</svg>
+					</li>
+					<li>
+						<svg viewBox="0 0 90 120" fill="currentColor">
+							<path
+									d="M90,0 L90,120 L11,120 C4.92486775,120 0,115.075132 0,109 L0,11 C0,4.92486775 4.92486775,0 11,0 L90,0 Z M71.5,81 L18.5,81 C17.1192881,81 16,82.1192881 16,83.5 C16,84.8254834 17.0315359,85.9100387 18.3356243,85.9946823 L18.5,86 L71.5,86 C72.8807119,86 74,84.8807119 74,83.5 C74,82.1745166 72.9684641,81.0899613 71.6643757,81.0053177 L71.5,81 Z M71.5,57 L18.5,57 C17.1192881,57 16,58.1192881 16,59.5 C16,60.8254834 17.0315359,61.9100387 18.3356243,61.9946823 L18.5,62 L71.5,62 C72.8807119,62 74,60.8807119 74,59.5 C74,58.1192881 72.8807119,57 71.5,57 Z M71.5,33 L18.5,33 C17.1192881,33 16,34.1192881 16,35.5 C16,36.8254834 17.0315359,37.9100387 18.3356243,37.9946823 L18.5,38 L71.5,38 C72.8807119,38 74,36.8807119 74,35.5 C74,34.1192881 72.8807119,33 71.5,33 Z"
+							></path>
+						</svg>
+					</li>
+					<li>
+						<svg viewBox="0 0 90 120" fill="currentColor">
+							<path
+									d="M90,0 L90,120 L11,120 C4.92486775,120 0,115.075132 0,109 L0,11 C0,4.92486775 4.92486775,0 11,0 L90,0 Z M71.5,81 L18.5,81 C17.1192881,81 16,82.1192881 16,83.5 C16,84.8254834 17.0315359,85.9100387 18.3356243,85.9946823 L18.5,86 L71.5,86 C72.8807119,86 74,84.8807119 74,83.5 C74,82.1745166 72.9684641,81.0899613 71.6643757,81.0053177 L71.5,81 Z M71.5,57 L18.5,57 C17.1192881,57 16,58.1192881 16,59.5 C16,60.8254834 17.0315359,61.9100387 18.3356243,61.9946823 L18.5,62 L71.5,62 C72.8807119,62 74,60.8807119 74,59.5 C74,58.1192881 72.8807119,57 71.5,57 Z M71.5,33 L18.5,33 C17.1192881,33 16,34.1192881 16,35.5 C16,36.8254834 17.0315359,37.9100387 18.3356243,37.9946823 L18.5,38 L71.5,38 C72.8807119,38 74,36.8807119 74,35.5 C74,34.1192881 72.8807119,33 71.5,33 Z"
+							></path>
+						</svg>
+					</li>
+				</ul>
+			</div>
+			<span>Loading</span>
+		</div>
+	</div>
+<header>
+	<nav>
+		<div class="logo">
+			<a href="/" class="logo__a">
+				<span>vilcode</span> learn
+			</a>
+		</div>
+		<div class="openMenu">
+			<ion-icon class="icon-mobile" name="menu-outline"></ion-icon>
+		</div>
+		<ul class="mainMenu">
+			<li><a href="/" class="main-nav__link">home</a></li>
+			<li><a href="/submit" class="main-nav__link">create</a></li>
+			<li><a href="/questions" class="link-questions">learn</a></li>
+			<div class="closeMenu">
+				<ion-icon class="icon-mobile" name="close-outline"></ion-icon>
+			</div>
+		</ul>
+	</nav>
+</header>
+		<main class="questions-main">
+			<h1 class="questions-header">Questions</h1>
+
+			<div class="buttons">
+				<div class="switch">
+					<div class="switch__button">
+						<div class="button-handle"></div>
+					</div>
+					<div class="switch__caption"></div>
+				</div>
+
+			</div>
+
+			<div class="question-list"></div>
+
+		</main>
+<footer>
+	<div class="container">
+		<div class="footer--div grid">
+			<div class="footer--links">
+				<p class="footer--desc">Check us out on:</p>
+				<a
+						class="footer__link"
+						href="https://www.facebook.com/vilcode-108311144997852/"
+				>
+					<ion-icon class="footer__icon" name="logo-facebook"></ion-icon>
+				</a>
+				<a class="footer__link" href="https://github.com/restmate-pl">
+					<ion-icon class="footer__icon" name="logo-github"></ion-icon>
+				</a>
+				<a class="footer__link" href="#">
+					<ion-icon class="footer__icon" name="logo-linkedin"></ion-icon>
+				</a>
+			</div>
+			<div class="footer--copy">
+				<p>Copyright &copy; vilcode <span class="year"></span></p>
+			</div>
+		</div>
+	</div>
+</footer>
+
+	</body>
+</html>

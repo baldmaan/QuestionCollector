@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="description"
+			content="Question collector - online tool to help you learn using flashcards.
+			 You can also submit new questions to the database and increase the variety of cross-examination"
+		/>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="apple-touch-icon" sizes="180x180" th:href="@{/images/favicons/apple-touch-icon.png}" />
+		<link rel="icon" type="image/png" sizes="32x32" th:href="@{/images/favicons/favicon-32x32.png}" />
+		<link rel="icon" type="image/png" sizes="16x16" th:href="@{/images/favicons/favicon-16x16.png}" />
+		<link rel="manifest" th:href="@{/images/favicons/site.webmanifest}" />
+
+		<link rel="stylesheet" th:href="@{/styles/general.css}" />
+		<link rel="stylesheet" th:href="@{/styles/responsive-home.css}" />
+		<link rel="stylesheet" th:href="@{/styles/nav-styles.css}" />
+
+		<link rel="stylesheet" th:href="@{/styles/form-styles.css}" />
+
+		<link rel="stylesheet" th:href="@{/styles/footer.css}" />
+
+
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+				href="https://fonts.googleapis.com/css2?family=Montserrat%3Awght%40400%3B500%3B600%3B700"
+				rel="stylesheet"
+		/>
+		<script
+				type="module"
+				src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+				defer
+		></script>
+		<script
+				nomodule
+				src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+				defer
+		></script>
+		<script
+				th:src="@{/scripts/main.js}"
+				defer
+		></script>
+		<script
+				th:src="@{/scripts/submit.js}"
+				defer
+		></script>
+
+		<title>Question Collector</title>
+	</head>
+	<body>
+	<header>
+		<nav>
+			<div class="logo">
+				<a href="/" class="logo__a">
+					<span>vilcode</span> learn
+				</a>
+			</div>
+			<div class="openMenu">
+				<ion-icon class="icon-mobile" name="menu-outline"></ion-icon>
+			</div>
+			<ul class="mainMenu">
+				<li><a href="/" class="main-nav__link">home</a></li>
+				<li><a href="/submit" class="main-nav__link">create</a></li>
+				<li><a href="/questions" class="link-questions">learn</a></li>
+				<div class="closeMenu">
+					<ion-icon class="icon-mobile" name="close-outline"></ion-icon>
+				</div>
+			</ul>
+		</nav>
+	</header>
+		<main class="main-submit">
+			<div class="submit-div">
+				<div class="form-title">Add your question here!</div>
+				<form
+					class="submit-div__form"
+					th:object="${question}"
+					th:action="@{/submit/add/}"
+					method="post"
+				>
+					<div class="flex--row team-course-div">
+						<div class="select-div">
+							<div class="label-input-div">
+								<!-- <label for="category">Team</label> -->
+								<select
+									class="select"
+									id="team"
+									required
+								>
+									<option value="" hidden>select team</option>
+									<option value="frontend">frontend</option>
+									<option value="backend">backend</option>
+								</select>
+							</div>
+							<div class="label-input-div">
+								<!-- <label for="category">Course</label> -->
+								<select
+									class="select"
+									id="courses"
+									th:field="*{course}"
+									required
+								>
+									<option id="coursesPlaceholder" value="" hidden>select course</option>
+								</select>
+							</div>
+						</div>
+						<div class="label-input-div category">
+							<select
+								name="category"
+								class="select"
+								id="category"
+								th:field="*{category}"
+								required
+							>
+								<option id="categoryPlaceholder"  value="" hidden>select category</option>
+							</select>
+						</div>
+					</div>
+					<div class="label-input-div">
+						<textarea
+							required
+							id="question"
+							class="question"
+							placeholder="write your question"
+							th:field="*{description}"
+						></textarea>
+					</div>
+					<div class="label-input-div">
+						<textarea
+							required
+							id="answer"
+							class="answer"
+							placeholder="add an answer"
+							th:field="*{answer}"
+						></textarea>
+					</div>
+					<div class="button-div">
+						<button type="submit" class="button">Submit your question</button>
+					</div>
+				</form>
+			</div>
+		</main>
+
+		<footer>
+			<div class="container">
+				<div class="footer--div grid">
+					<div class="footer--links">
+						<p class="footer--desc">Check us out on:</p>
+						<a
+							class="footer__link"
+							href="https://www.facebook.com/vilcode-108311144997852/"
+						>
+							<ion-icon class="footer__icon" name="logo-facebook"></ion-icon>
+						</a>
+						<a class="footer__link" href="https://github.com/restmate-pl">
+							<ion-icon class="footer__icon" name="logo-github"></ion-icon>
+						</a>
+						<a class="footer__link" href="#">
+							<ion-icon class="footer__icon" name="logo-linkedin"></ion-icon>
+						</a>
+					</div>
+					<div class="footer--copy">
+						<p>Copyright &copy; vilcode <span class="year"></span></p>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</body>
+</html>
+

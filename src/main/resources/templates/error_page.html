@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		
+		<link rel="apple-touch-icon" sizes="180x180" th:href="@{/images/favicons/apple-touch-icon.png}" />
+		<link rel="icon" type="image/png" sizes="32x32" th:href="@{/images/favicons/favicon-32x32.png}" />
+		<link rel="icon" type="image/png" sizes="16x16" th:href="@{/images/favicons/favicon-16x16.png}" />
+		<link rel="manifest" th:href="@{/images/favicons/site.webmanifest}" />
+
+		<title>
+			Question collector &mdash; best tool to practice webdev knowledge
+		</title>
+
+
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+				href="https://fonts.googleapis.com/css2?family=Montserrat%3Awght%40400%3B500%3B600%3B700"
+				rel="stylesheet"
+		/>
+
+		<link rel="stylesheet" th:href="@{/styles/error.css}" />
+		<link rel="stylesheet" th:href="@{/styles/nav-styles.css}" />
+		<script
+				type="module"
+				src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+				defer
+		></script>
+		<script
+				nomodule
+				src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+				defer
+		></script>
+		<script
+				type="text/javascript"
+				th:src="@{/scripts/main.js}"
+				defer
+		></script>
+	</head>
+	<body>
+	<header>
+		<nav>
+			<div class="logo">
+				<a href="/" class="logo__a">
+					<span>vilcode</span> learn
+				</a>
+			</div>
+			<div class="openMenu">
+				<ion-icon class="icon-mobile" name="menu-outline"></ion-icon>
+			</div>
+			<ul class="mainMenu">
+				<li><a href="/" class="main-nav__link">home</a></li>
+				<li><a href="/submit" class="main-nav__link">create</a></li>
+				<li><a href="/questions" class="link-questions">learn</a></li>
+				<div class="closeMenu">
+					<ion-icon class="icon-mobile" name="close-outline"></ion-icon>
+				</div>
+			</ul>
+		</nav>
+	</header>
+		<div class="section-main">
+			<div class="page__grid">
+				<div class="img-box">
+					<img
+							src="../images/undraw_cancel_u-1-it.svg"
+							alt="Image informing about error."
+					/>
+				</div>
+				<div class="text-box">
+					<p>Page doesn't exist.</p>
+
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
